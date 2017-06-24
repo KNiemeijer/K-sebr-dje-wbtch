@@ -1,0 +1,191 @@
+doctype	html
+html
+	head
+		title Mijn profiel
+		link(rel='stylesheet', type='text/css', href='stylesheets/stylesheet.css')
+		link(rel='stylesheet', type='text/css', href='https://fonts.googleapis.com/css?family=Aldrich')
+		link(rel='stylesheet', type='text/css', href='https://fonts.googleapis.com/css?family=Abel')
+		meta(name='description', content='Een overzicht van uw profiel bij Koleon')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		meta(name='keywords', content='Laptop, Koleon, op maat, hardware, CPU, GPU, customised, customized, pc, computer, memes, Harambe')
+		meta(name='author',	content='Koleon')
+		meta(name='copyright', content='©	2017	Koleon')
+		meta(name='content-language', content='nl')
+		meta(http-equiv='content-type', content='text/html;	charset=UTF-8')
+		meta(http-equiv='default-style', content='stylesheets/stylesheet.css')
+		meta(name='robots',	content='index, follow')
+		link(rel='icon', href='images/icon.png',	sizes='256x172',	type='image/png')
+		script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js')
+		script(src='javascripts/generic.js', defer='')
+		script(src='javascripts/mijnprofiel.js', defer='')
+		link(rel='stylesheet',	href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css')
+		script(src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js')
+		script(src='https://cdn.jsdelivr.net/jquery.ui-contextmenu/1.14.0/jquery.ui-contextmenu.min.js')
+	body
+		.container
+			nav
+				button.logout Log uit
+				ul
+					li
+						img#logo(alt='koleon logo',	src='images/logo_koleon.png')
+					li
+						a(href='index.html') Koleon
+					li
+						a(href='producten.html') Producten
+					li
+						a(href='diensten.html') Laptop Samenstellen
+					li
+						a(href='contact.html') Contact
+					li
+						a(href='overons.html') Over	Koleon
+				a(href='winkelmandje.html')
+						img(src='images/shopping-cart-white.png', alt='shopping	cart', id='wínkelmandje')
+						#shoppingCartNumber 0
+			section.content
+				h2.w3-warning W3
+				.innercontent(style='width:60%; margin:auto')
+					h1 Mijn profiel
+					h3 Uw gegevens
+					table.accountTable
+						tbody
+							tr
+								td 
+									|Gebruikersnaam: 
+								td#userName #{userID}
+							tr
+								td 
+									|Voornaam: 
+								td#firstName
+							tr
+								td 
+									|Achternaam: 
+								td#lastName
+							tr
+								td 
+									|Adres: 
+								td#address
+							tr
+								td 
+									|Status van uw account: 
+								td#account
+					button#editProfile Bewerk
+					br
+					br
+					h3 Uw bestellingen
+				table#productentabel
+					tbody
+						tr
+							td	Product
+							td	Omschrijving
+							td	Prijs
+				.rsSection
+					.innercontent(style='width:60%; margin:auto')
+						h3 Uw beschikbare producten
+					table.availableTabel
+						tbody
+							tr
+								td	Product
+								td	Omschrijving
+								td	Prijs
+								td.tinyCell	Op voorraad
+				.rsSection
+					.innercontent(style='width:60%; margin:auto')
+						h3 Uw verkochte producten
+					table.sellersTabel
+						tbody
+							tr
+								td	Product
+								td	Omschrijving
+								td	Prijs
+								td.tinyCell	Op voorraad
+					.innercontent(style='width:60%; margin:auto')
+						h3 Een product toevoegen 
+						form.addProductForm(method='post', enctype="multipart/form-data")
+							input(type='hidden', value='#{userID}', name='sellerID')
+							label(for='productName') Productnaam: 
+							input#productName(type='text', name='productName', placeholder='De naam van uw product..', required)
+							br
+							br
+							label(for='description') Beschrijving: 
+							textarea#description(name='description', placeholder='Beschrijving van uw product..', style='height:100px', required)
+							br
+							label(for='stock') Hoeveelheid: 
+							input#stock(type='number', name='stock', placeholder='1', min='1', max='99', required)
+							br
+							br
+							label(for='manufacturer') Producent:
+							select#manufacturer(name='manufacturer')
+								option(value='1') Dell
+								option(value='2') HP
+								option(value='3') Asus
+								option(value='4') Acer
+								option(value='5') MSI
+								option(value='6') Koleon
+								option(value='7') Lenovo
+								option(value='8') Trust
+								option(value='9') Logitech
+								option(value='10') Razer
+							label(for='manufacturer') Categorie:
+							select#category(name='category')
+								option(value='1') Gaming laptop
+								option(value='2') Gaming desktop
+								option(value='3') Workstation
+								option(value='4') Randapparatuur
+							label(for='manufacturer') Subcategorie:
+							select#category(name='subcategory')
+								option(value='NULL') Geen subcategorie
+								option(value='2') Koptelefoons
+								option(value='4') 13 inch beeldscherm
+								option(value='5') 15 inch beeldscherm
+								option(value='6') 17 inch beeldscherm
+								option(value='7') Nvidea
+								option(value='8') AMD
+								option(value='9') DDR4 Ram
+								option(value='10') DDR3 Ram
+								option(value='11') Gaming muis
+								option(value='12') Optisch
+								option(value='13') Laser
+								option(value='14') Toetsenbord
+								option(value='15') Draadloos
+								option(value='16') Bedraad
+								option(value='17') Headset
+							select#category2(name='subcategory2')
+								option(value='NULL') Geen subcategorie
+								option(value='2') Koptelefoons
+								option(value='4') 13 inch beeldscherm
+								option(value='5') 15 inch beeldscherm
+								option(value='6') 17 inch beeldscherm
+								option(value='7') Nvidea
+								option(value='8') AMD
+								option(value='9') DDR4 Ram
+								option(value='10') DDR3 Ram
+								option(value='11') Gaming muis
+								option(value='12') Optisch
+								option(value='13') Laser
+								option(value='14') Toetsenbord
+								option(value='15') Draadloos
+								option(value='16') Bedraad
+								option(value='17') Headset
+							label(for='productName') Prijs: 
+							input#prce(type='number', name='price', placeholder='500', required)
+							br
+							br
+							label(for'image') Upload foto: 
+							input(type="file", single, name="image" required)
+							br
+							br
+							input(type='submit', value='Plaats product')
+			footer
+				ul
+					li
+						a(href='') Algemene	voorwaarden
+					li
+						a(href='') Cookies
+					li
+						a(href='') Privacy
+					li
+						a(href='') Carrière
+					li
+						a(href='') Over	Koleon
+				br
+				a(href='https://www.w3schools.com/', target='_blank', style='margin-right:-100px;') Deze site is mogelijk gemaakt door w3schools

@@ -1,3 +1,4 @@
+/* This is the stylesheet used site-wide*/
 /* Generic styling */
 
 html,
@@ -6,6 +7,8 @@ body {
     margin: 0;
     height: 100%;
     font-family: Arial, Verdana;
+    -webkit-transition: ease 0.45s;
+    transition: ease 0.45s;
 }
 .container {
     position: relative;
@@ -32,6 +35,10 @@ a:hover {
 p {
     font-family: arial;
     font-size: 16px;
+}
+h3 {
+    font-family: Abel;
+    font-size: 20px;
 }
 nav {
     text-align: center;
@@ -78,7 +85,8 @@ li a {
     display: block;
     padding: 10px 20px 10px 20px;
     font: bold 15px Verdana;
-    font-family: "trebuchet ms";
+    font-family: Abel;
+    font-size: 18px;
 }
 nav ul {
     margin: 0px;
@@ -89,7 +97,7 @@ nav ul li a:hover {
 .search {
     float: right;
     margin-right: 5px;
-    width: 330px;
+    width: 15%;
     box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 4px;
@@ -101,7 +109,7 @@ nav ul li a:hover {
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;
     margin-left: -100px;
-    background-image: url('img/search.png');
+    background-image: url('../images/search.png');
     background-size: 30px 30px;
 }
 .container_comments {
@@ -132,6 +140,7 @@ nav ul li a:hover {
 }
 tr td img {
     max-width: 250px;
+    max-height: 200px;
     font-family: Abel, Verdana;
 }
 button {
@@ -141,6 +150,9 @@ button {
     border-radius: 4px;
     cursor: pointer;
     background-color: royalblue;
+}
+button:hover {
+    opacity: 0.8;
 }
 #wínkelmandje {
     margin-right: -10px;
@@ -171,16 +183,14 @@ button {
 /* End of generic styling */
 /* Producten page */
 
-.producten {
+.producten-container {
     margin: auto;
-    border-collapse: collapse;
-    width: 10px;
     font-family: Abel, Verdana;
     text-align: center;
-    margin-bottom: 50px;
+    display: table;
 }
-.producten tr:nth-child(odd) {
-    background-color: #eee;
+.producten {
+    margin-bottom: 20px;
 }
 td button {
     padding: 20px 80px;
@@ -198,6 +208,70 @@ td,
     min-width: 300px;
     width: auto;
     height: auto;
+}
+.producten td {
+    border: 1px solid grey;
+    cursor: pointer;
+}
+.producten td:hover {
+    border: 1px solid black;
+}
+.orderProductsContainer {
+    width: 100%;
+    height: 100px;
+    position: relative;
+}
+.orderProducts {
+    width: auto;
+    position: absolute;
+    right: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.orderProducts select {
+    width: auto;
+}
+.sortProductsContainer {
+    height: 100%;
+    width: 200px;
+    position: relative;
+    display: inline;
+    float: left
+}
+.sortProducts {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 5px 20px 20px 20px;
+    margin-bottom: 10px;
+}
+.pagination {
+    display: inline-table;
+}
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+}
+.pagination a.active {
+    background-color: royalblue;
+    color: white;
+}
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+}
+#searchProducts {
+    float: right;
+    width: auto;
+    position: absolute;
+    left: 30%;
+    top: 50%;
+    transform: translateY(-50%);
 }
 /* End of producten page */
 /* Laptop samenstellen page */
@@ -286,7 +360,7 @@ td,
     height: 600px;
 }
 .container_msi::before {
-    background: url('img/lol.jpg') no-repeat fixed 0% 0%;
+    background: url('../images/lol.jpg') no-repeat fixed 0% 0%;
 }
 .nvidiaBlock {
     background-color: black;
@@ -295,7 +369,7 @@ td,
     float: right;
 }
 .container_alienware::before {
-    background: url('img/alienware.png') no-repeat fixed 50% 50%;
+    background: url('../images/alienware.png') no-repeat fixed 50% 50%;
 }
 #alienwareImage {
     -moz-transform: scale(-1, 1);
@@ -332,8 +406,17 @@ input[type=submit]:hover {
     background-color: rgba(65, 105, 225, 0.9);
 }
 input[type=text]:hover,
-input[type="email"]:hover {
+input[type="email"]:hover,
+input[type="password"]:hover {
     background-color: white;
+}
+input[type="password"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
 }
 input:hover {
     background-color: rgba(65, 105, 225, 0.9);
@@ -367,6 +450,10 @@ input:hover {
     margin: 10px;
     border: 3px solid #000;
 }
+.gm-style img {
+    max-width: none;
+    max-height: none;
+}
 #legend h3 {
     margin-top: 0;
 }
@@ -374,6 +461,39 @@ input:hover {
     vertical-align: middle;
 }
 /* End of over ons page */
+
+.startLogin,
+.startlogin:focus,
+.goToProfile,
+.goToProfile:hover,
+.logout,
+.logout:focus,
+.goToProfile:visited,
+.startRegistration,
+.startRegistration:focus {
+    font-weight: bold;
+    -webkit-margin-before: 1em;
+    margin-bottom: 0px;
+    outline: 0;
+    color: white;
+    font-size: 16px;
+    padding: 15px 0px 12px 20px;
+    position: absolute;
+    left: 0;
+    font-family: Abel;
+}
+.startRegistration,
+.startRegistration:focus {
+    left: 60px;
+}
+.goToProfile:hover,
+.logout:hover {
+    color: lightblue;
+}
+.logout,
+.logout:focus {
+    left: 130px;
+}
 /* The Modal (background) */
 
 .modal {
@@ -383,7 +503,7 @@ input:hover {
     position: fixed;
     /* Stay in place */
     
-    z-index: 1;
+    z-index: 3;
     /* Sit on top */
     
     left: 0;
@@ -419,6 +539,13 @@ input:hover {
     text-decoration: none;
     cursor: pointer;
 }
+/* The Cancel Button */
+
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
 /* Modal Header */
 
 .modal-header {
@@ -431,12 +558,22 @@ input:hover {
 .modal-body {
     padding: 2px 16px;
 }
+form .modal-container input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
 #modaltext {
     font-size: 25px;
     display: block;
 }
 #modalimg {
-    width: 50%;
+    max-width: 50%;
+    max-height: 400px;
+    margin: 0px 20px 20px 0px;
     float: left;
 }
 /* Modal Footer */
@@ -450,20 +587,46 @@ input:hover {
 
 .modal-content {
     background-color: #fefefe;
-    margin: 5% auto;
+    margin: 1% auto;
     border: 1px solid royalblue;
-    width: 80%;
+    width: 90%;
+    max-height: 85%;
+    overflow: auto;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
     animation-name: animatetop;
-    animation-duration: 0.4s
+    animation-duration: 0.4s;
+}
+#loginModal .modal-content,
+#registerModal .modal-content {
+    width: 40%;
+    margin: 5% auto;
+}
+#registerModal .modal-content {
+    width: 60%
+}
+#registerModal {
+    position: absolute;
+}
+form .modal-header {
+    background: royalblue;
+}
+.modal-container {
+    padding: 16px;
+}
+.loginbutton {
+    width: 100%;
 }
 #modalbestel {
     float: right;
     margin: 10px;
     background-color: white;
     color: royalblue;
+}
+span.psw {
+    float: right;
+    padding-top: 16px;
 }
 /* Add Animation */
 
@@ -487,10 +650,21 @@ input:hover {
         opacity: 1
     }
 }
+#afrekenBevestiging .modal-content {
+    width: 40%;
+    margin: 5% auto;
+    text-align: center;
+}
+#afrekenBevestiging .modal-content button {
+    width: 100px;
+    margin: 10px;
+}
 /* End of modal */
 /* Winkelwagen page */
 
-#productentabel {
+#productentabel,
+.sellersTabel,
+.availableTabel {
     display: none;
     margin: auto;
     border-collapse: collapse;
@@ -499,7 +673,9 @@ input:hover {
     text-align: center;
     margin-bottom: 50px;
 }
-#productentabel tr:nth-child(odd) {
+#productentabel tr:nth-child(odd),
+.sellersTabel tr:nth-child(odd),
+.availableTabel tr:nth-child(odd) {
     background-color: #eee;
 }
 #afrekenen {
@@ -508,6 +684,32 @@ input:hover {
     margin: 0px 10% 50px 0px;
 }
 /* End of winkelwagen page */
+/* My profile page */
+
+.accountTable tr td {
+    min-width: initial;
+}
+.rsSection {
+    display: none;
+}
+.tinyCell {
+    min-width: 0;
+}
+.addProductForm {
+    margin-bottom: 30px;
+}
+.addProductForm input[type=number]:hover,
+.addProductForm input[type=file]:hover {
+    background-color: white;
+}
+.addProductForm input[type=text],
+.addProductForm input[type=number],
+addProductForm input[type=file] {
+    padding: 5px;
+    border: 1px solid grey;
+    border-radius: 3px;
+}
+/* End of my profile */
 
 @media screen and (max-width: 1200px) {
     .search {
